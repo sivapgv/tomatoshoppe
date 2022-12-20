@@ -1,1 +1,17 @@
 <p>customers works!</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">CustomerName</th>
+            <th scope="col">CustomerType</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let cust of customers">
+        <td>cust.id</td>
+        <td>cust.customername</td>
+        <td>cust.customertype</td>
+        <td>cust.address</td>
+    </tr>
+</table>
