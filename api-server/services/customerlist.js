@@ -33,7 +33,18 @@ async function createcustomer(customer){
     return {message};
 }
 
+async function updateCustomer(id, customer) {
+  const result = await db.query(`update customers set customername='${customer.customername}', customertype='${customer.customertype}', address='${customer.address}', outletarea='${customer.outletarea}', phonenumber='${customer.phonenumber}, tinnumber='${customer.tinnumber}'`);
+
+  let message = "customer update error";
+
+  if(result.affectedRows) {
+    message = "customer updated successfully";
+  }
+}
+
 module.exports = {
     getCustomerList,
-    createcustomer
+    createcustomer,
+    updateCustomer
 }
