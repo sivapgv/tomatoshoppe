@@ -8,6 +8,7 @@ import { SalesentryComponent } from './features/salesentry/salesentry.component'
 import { FooterComponent } from './features/footer/footer.component';
 import { CustomersComponent } from './features/customers/customers.component';
 import { AddCustomerComponent } from './features/add-customer/add-customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddCustomerComponent } from './features/add-customer/add-customer.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
