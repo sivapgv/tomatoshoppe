@@ -1,4 +1,8 @@
 <p>customers works!</p>
+
+<a class="btn btn-primary" routerLink="/addcustomers" role="button">AddCustomer</a>
+<br>
+<br>
 <table border="1">
     <thead>
         <tr>
@@ -6,12 +10,22 @@
             <th scope="col">CustomerName</th>
             <th scope="col">CustomerType</th>
             <th scope="col">Address</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tr *ngFor="let cust of customers">
-        <td>cust.id</td>
-        <td>cust.customername</td>
-        <td>cust.customertype</td>
-        <td>cust.address</td>
+        <td>{{cust.id}}</td>
+        <td>{{cust.customername}}</td>
+        <td>{{cust.customertype}}</td>
+        <td>{{cust.address}}</td>
+        <td>
+            <a [routerLink]="['/customers',cust.id]">Edit</a>
+        </td>
+        <!-- <td class="mb-3">
+            <a [routerLink]="['/customers',cust.id]">View</a>
+        </td> -->
+        <!-- <td class="mb-3">
+            <button type="submit" class="btn btn-danger" (click)="deleteCustomer(cust.id)">Delete</button>
+        </td> -->
     </tr>
 </table>

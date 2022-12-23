@@ -17,9 +17,20 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this._customerservice.getAllCustomer().subscribe(data => {
-      // alert(JSON.stringify(data));
-      this.customers = data;
+      this.customers = data.data;
     })
   }
+
+  // deleteCustomer(id: number): void {
+  //   let con = confirm("Are you sure want to delete..")
+  //   if (con) {
+  //     this._customerservice.deleteCustomer(id).subscribe(data => {
+  //       let index = this.customers.findIndex(p => p.id == id)
+  //       this.customers.splice(index, 1);
+  //       alert("Customer is deleted successfully..")
+  //     })
+  //   }
+  // }
+
 
 }

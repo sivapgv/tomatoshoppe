@@ -4,12 +4,16 @@ import { HeaderComponent } from './features/header/header.component';
 import { SalesentryComponent } from './features/salesentry/salesentry.component';
 import { FooterComponent } from './features/footer/footer.component';
 import { CustomersComponent } from './features/customers/customers.component';
-import { AddCustomerComponent } from './features/add-customer/add-customer.component';
+import { AddcustomerComponent } from './features/addcustomer/addcustomer.component';
+import { CustomerviewComponent } from './features/customerview/customerview.component';
+
 
 const routes: Routes = [
   { path: 'home', component: SalesentryComponent },
   { path: 'customers', component: CustomersComponent },
-  { path: 'add-customer', component: AddCustomerComponent }
+  { path: 'addcustomers', component: AddcustomerComponent },
+  { path: 'customers/:route', component: AddcustomerComponent }
+
 ];
 
 @NgModule({

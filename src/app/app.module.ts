@@ -8,7 +8,9 @@ import { HeaderComponent } from './features/header/header.component';
 import { SalesentryComponent } from './features/salesentry/salesentry.component';
 import { FooterComponent } from './features/footer/footer.component';
 import { CustomersComponent } from './features/customers/customers.component';
-import { AddCustomerComponent } from './features/add-customer/add-customer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddcustomerComponent } from './features/addcustomer/addcustomer.component';
+import { CustomerviewComponent } from './features/customerview/customerview.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,15 @@ import { AddCustomerComponent } from './features/add-customer/add-customer.compo
     SalesentryComponent,
     FooterComponent,
     CustomersComponent,
-    AddCustomerComponent
+    AddcustomerComponent,
+    CustomerviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

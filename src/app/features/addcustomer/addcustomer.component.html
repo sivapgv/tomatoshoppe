@@ -1,0 +1,42 @@
+<p>addcustomer works!</p>
+
+<div class="mt-2">
+  <form #f="ngForm">
+      <div class="mb-3">
+          <label for="customername" class="form-label">customername</label>
+          <input type="text" class="form-control" [ngModel]="customername" name="customername">
+      </div>
+      <div class="mb-3">
+        <label for="customertype" class="form-label">customertype</label>
+        <input type="text" class="form-control" [ngModel]="customertype" name="customertype">
+    </div>
+      <div class="mb-3">
+          <label for="address" class="form-label">address</label>
+          <input type="text" class="form-control" [ngModel]="address" name="address">
+      </div>
+      <div class="mb-3">
+        <label for="outletarea" class="form-label">outletarea</label>
+        <input type="text" class="form-control" [ngModel]="outletarea" name="outletarea">
+    </div>
+
+      <div class="mb-3">
+          <label for="phonenumber" class="form-label">phonenumber</label>
+          <input type="number" class="form-control" [ngModel]="phonenumber" name="phonenumber">
+      </div>
+      <div class="mb-3">
+          <label for="tinnumber" class="form-label">tinnumber</label>
+          <input type="number" class="form-control" [ngModel]="tinnumber" name="tinnumber">
+      </div>
+
+       <button *ngIf="id==0" type="submit" class="btn btn-primary" (click)="saveCustomer(f)">Submit</button> 
+  </form>
+</div>
+
+
+<!-- customername
+customertype
+address
+outletarea
+phonenumber
+tinnumber -->
+
