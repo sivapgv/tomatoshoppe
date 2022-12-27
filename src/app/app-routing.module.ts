@@ -12,8 +12,7 @@ const routes: Routes = [
   { path: 'home', component: SalesentryComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'addcustomers', component: AddcustomerComponent },
-  { path: 'customers/:route', component: AddcustomerComponent }
-
+  { path: 'customers/:route', component: AddcustomerComponent },
 ];
 
 @NgModule({

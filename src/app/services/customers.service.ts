@@ -9,7 +9,9 @@ import { IAddcustomer } from '../IAddcustomer';
 export class CustomersService {
 
   private _url = "http://localhost:3000/customerlist";
- 
+  private _geturl = "http://localhost:3000/customer";
+  private _salesurl = "http://localhost:3000/salesmaster";
+
 
   constructor(private _httpClient:HttpClient) { }
 
@@ -21,12 +23,16 @@ export class CustomersService {
     return this._httpClient.post(this._url, customer);
   }
 
-  // deleteCustomer(id: number): Observable<IAddcustomer[]> {
-  //   return this._httpClient.delete<IAddcustomer[]>(this._url + "/" + id)
-  // }
-
-  getCustomer(id: number): Observable<IAddcustomer> {
-    return this._httpClient.get<IAddcustomer>(this._url + "/" + id)
+  getCustomer(id: number): Observable<any> {
+    return this._httpClient.get<any>(this._geturl + "/" + id)
   }
 
+  updateCustomer(customer: any, id: number): Observable<any> {
+    return this._httpClient.put(this._geturl + "/" + id, customer);
+  }
+
+  saveSalesentry(sales: any): Observable<any> {
+    return this._httpClient.post(this._salesurl, sales);
+  }
+  
 }

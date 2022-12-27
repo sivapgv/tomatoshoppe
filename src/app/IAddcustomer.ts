@@ -1,5 +1,6 @@
 export interface IAddcustomer {
 
+id: number;
 customername: string;
 customertype: string
 address: string;
