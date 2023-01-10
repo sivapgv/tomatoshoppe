@@ -6,9 +6,11 @@
           <label for="customername" class="form-label">customername</label>
           <input type="text" class="form-control" [ngModel]="customername" name="customername" required>
       </div>
-      <div class="mb-3">
-        <label for="customertype" class="form-label">customertype</label>
-        <input type="text" class="form-control" [ngModel]="customertype" name="customertype" required>
+    <div class="mb-3">
+      <select #ctype (change)="onChange(ctype.value)" [(ngModel)]="customertype" name="customertype">
+        <option [value]="null" [disabled]="true" [selected]> Select an option </option>
+        <option *ngFor="let user of selectCustomer" value="{{user.type}}">{{user.type}}</option>
+      </select>
     </div>
       <div class="mb-3">
           <label for="address" class="form-label">address</label>

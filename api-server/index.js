@@ -5,6 +5,7 @@ const port = 3000;
 const customerlist = require("./routes/customerlist");
 const customer = require("./routes/customer");
 const salesmaster = require("./routes/salesmaster");
+
 app.use(cors());
 app.use(express.json());
 app.use(
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 app.use("/customerlist", customerlist);
 app.use("/customer", customer);
 app.use("/salesmaster", salesmaster);
+
 /* Error handler middleware */
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

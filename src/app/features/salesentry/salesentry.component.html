@@ -3,101 +3,115 @@
     <form #f="ngForm">
     
             <div class="mb-3">
-                <label for="billno" class="form-label">billno</label>
-                <input type="number" class="form-control" [ngModel]="billno" name="billno">
+                <label for="billno" >Billno</label>
+                <input type="number" [ngModel]="billno" name="billno" disabled placeholder="BillNo">
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">date</label>
-                <input type="string" class="form-control" [ngModel]="date" name="date">
+                <label for="date">date</label>
+                <input type="string" [ngModel]="date" name="date">
             </div>
             <div class="mb-3">
-                <label for="customerid" class="form-label">CustomerName</label>
+                <label for="customerid">CustomerName</label>
                 <select #teams (change)="onSelected(teams.value)">
-                    <option *ngFor="let cust of customers" [value]="cust.id">
+                    <option *ngFor="let cust of farmer" [value]="cust.id">
                         {{cust.customername}}
                     </option>
                 </select>
             </div>
-           
             <div class="mb-3">
-                <label for="comission" class="form-label">comission</label>
-                <input type="number" class="form-control" [ngModel]="comission" name="comission">
+                <label for="comission">comission</label>
+                <input type="number" [ngModel]="comission" name="comission" disabled>
             </div>
             <div class="mb-3">
-                <label for="rent" class="form-label">rent</label>
-                <input type="number" class="form-control" [ngModel]="rent" name="rent">
+                <label for="rent">rent</label>
+                <input type="number" [ngModel]="rent" name="rent">
             </div>
             <div class="mb-3">
-                <label for="credit" class="form-label">credit</label>
-                <input type="number" class="form-control" [ngModel]="credit" name="credit">
+                <label for="credit">credit</label>
+                <input type="number"[ngModel]="credit" name="credit">
             </div>
             <div class="mb-3">
-                <label for="wages" class="form-label">wages</label>
-                <input type="number" class="form-control" [ngModel]="wages" name="wages">
+                <label for="wages">wages</label>
+                <input type="number" [ngModel]="wages" name="wages" disabled>
             </div>
             <div class="mb-3">
-                <label for="toll" class="form-label">toll</label>
-                <input type="number" class="form-control" [ngModel]="toll" name="toll">
+                <label for="toll">toll</label>
+                <input type="number"  [ngModel]="toll" name="toll" disabled>
             </div>
             <div class="mb-3">
-                <label for="debit" class="form-label">debit</label>
-                <input type="number" class="form-control" [ngModel]="debit" name="debit">
+                <label for="debit">debit</label>
+                <input type="number" [ngModel]="debit" name="debit">
             </div>
             <div class="mb-3">
-                <label for="refname" class="form-label">refname</label>
-                <input type="text" class="form-control" [ngModel]="refname" name="refname">
+                <label for="refname">refname</label>
+                <input type="text"  [ngModel]="refname" name="refname">
             </div>
             <div class="mb-3">
-                <label for="totalamount" class="form-label">totalamount</label>
-                <input type="number" class="form-control" [ngModel]="totalamount" name="totalamount">
-            </div>
-
-            <div class="mb-3">
-                <label for="inproductname" class="form-label">in productname</label>
-                <input type="text" class="form-control" [ngModel]="inproductname" name="inproductname">
+                <label for="totalamount">totalamount</label>
+                <input type="number" [ngModel]="totalamount" name="totalamount">
             </div>
             <div class="mb-3">
-                <label for="inkgs" class="form-label">in kgs</label>
-                <input type="number" class="form-control" [ngModel]="inkgs" name="inkgs">
+                <label for="inproductname" >in productname</label>
+                <input type="text" [ngModel]="inproductname" name="inproductname" (blur)="onBlurinproductname(f)">
             </div>
             <div class="mb-3">
-                <label for="inpack" class="form-label">in pack</label>
-                <input type="number" class="form-control" [ngModel]="inpack" name="inpack">
+                <label for="inkgs">in kgs</label>
+                <input type="number"  [ngModel]="inkgs" name="inkgs" (blur)="onBlurInkgs(f)">
             </div>
             <div class="mb-3">
-                <label for="inrate" class="form-label">in rate</label>
-                <input type="text" class="form-control" [ngModel]="inrate" name="inrate">
+                <label for="inpack">in pack</label>
+                <input type="number"  [ngModel]="inpack" name="inpack" (blur)="onBlurInpack(f)">
             </div>
             <div class="mb-3">
-                <label for="inamount" class="form-label">in amount</label>
-                <input type="number" class="form-control" [ngModel]="inamount" name="inamount">
+                <label for="inrate">in rate</label>
+                <input type="text" [ngModel]="inrate" name="inrate" (blur)="onBlurInrate(f)">
             </div>
-
+            <div class="mb-3">
+                <label for="inamount">in amount</label>
+                <input type="number" [ngModel]="inamount" name="inamount" disabled placeholder="Product Amount">
+            </div>
+            <div class="mb-3">
+                <input type="number" [ngModel]="totalInAmount" name="totalInAmount" disabled placeholder="TotalAmount">
+            </div>
             <button type="button" (click)="addInward(f)">Add</button>
-       
             <div class="mb-3">
-                <label for="outproductname" class="form-label">out productname</label>
-                <input type="text" class="form-control" [ngModel]="outproductname" name="outproductname">
+                <label for="outcustomerid" class="form-label">BusinessMan</label>
+                <select #business (change)="selectBusinessman(business.value)">
+                    <option *ngFor="let b of businessMan" [value]="b.id">
+                        {{b.customername}}
+                    </option>
+                </select>
             </div>
-            <div class="mb-3">
-                <label for="outkgs" class="form-label">out kgs</label>
-                <input type="number" class="form-control" [ngModel]="outkgs" name="outkgs">
-            </div>
-            <div class="mb-3">
-                <label for="outpack" class="form-label">out pack</label>
-                <input type="number" class="form-control" [ngModel]="outpack" name="outpack">
-            </div>
-            <div class="mb-3">
-                <label for="outrate" class="form-label">out rate</label>
-                <input type="text" class="form-control" [ngModel]="outrate" name="outrate">
-            </div>
-            <div class="mb-3">
-                <label for="outamount" class="form-label">out amount</label>
-                <input type="number" class="form-control" [ngModel]="outamount" name="outamount">
-            </div>
-           
-            <button type="submit" (click)="addOutward(f)">Add</button>
+            <!-- <div class="mb-3">
+                <label for="outproductname" class="form-label">OutProductName</label>
 
+                <select #outprouductname (change)="selectOutProduct($event)">
+                    <option *ngFor="let b of selectProductName" [value]="b.id">
+                        {{b.type}}
+                    </option>
+                </select>
+            </div> -->
+            <div class="mb-3">
+                <label for="outproductname" >out productname</label>
+                <input type="text" [ngModel]="outproductname" name="outproductname" (blur)="onBlurOutproductname(f)">
+            </div>
+            <div class="mb-3">
+                <label for="outkgs">out kgs</label>
+                <input type="number" [ngModel]="outkgs" name="outkgs" (blur)="onBlurOutkgs(f)">
+            </div>
+            <div class="mb-3">
+                <label for="outpack">out pack</label>
+                <input type="number" [ngModel]="outpack" name="outpack" (blur)="onBlurOutpack(f)">
+            </div>
+            <div class="mb-3">
+                <label for="outrate">out rate</label>
+                <input type="text" [ngModel]="outrate" name="outrate" (blur)="onBlurOutrate(f)">
+            </div>
+            <div class="mb-3">
+                <label for="outamount">out amount</label>
+                <input type="number" [ngModel]="outamount" name="outamount" disabled>
+            </div>
+            <button type="submit" (click)="addOutward(f)">Add</button>
             <button type="submit" class="btn btn-primary" (click)="saveSalesentry(f)">Submit</button>
     </form>
 </div>

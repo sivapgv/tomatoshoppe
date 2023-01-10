@@ -12,6 +12,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class AddcustomerComponent implements OnInit   {
  
+  selectCustomer = [
+    {id: 1, type: "Farmer"},
+    {id: 2, type: "BusinessMan"}
+    // {id: 3, type: "Others"},
+ ];
+ 
+ 
+  selectedUser!: string;
   addCustomer: IAddcustomer[] = [] as IAddcustomer[];
 
   id: number = 0;
@@ -22,6 +30,8 @@ export class AddcustomerComponent implements OnInit   {
   phonenumber!: number;
   tinnumber!: number;
 
+  customerValue!: string;
+
   constructor(private _router: Router, private _customerservice: CustomersService, private _activate: ActivatedRoute) { }
 
     ngOnInit(): void {
@@ -30,7 +40,7 @@ export class AddcustomerComponent implements OnInit   {
       this._customerservice.getCustomer(this.id).subscribe(data => {
         if (data) {
            this.customername = data.data[0].customername;
-           this.customertype = data.data[0].customertype;
+           this.customertype = this.customerValue;
            this.address = data.data[0].address;
            this.outletarea = data.data[0].outletarea;
            this.phonenumber = data.data[0].phonenumber;
@@ -42,8 +52,12 @@ export class AddcustomerComponent implements OnInit   {
     }
   }
 
+  onChange(value:string) {
+    this.customerValue = value;
+  }
+
     saveCustomer(f: NgForm): void {
-      alert(f.value);
+      // alert(f.value);
         this._customerservice.saveCustomer(f.value).subscribe(data => {
         this.addCustomer.push(f.value);
         alert("Customer added successfully..");
@@ -53,13 +67,13 @@ export class AddcustomerComponent implements OnInit   {
     }
 
     updateCustomer(f: NgForm): void {
-      console.log(f.value);
+      // console.log(f.value);
       if (this.id == 0) {
         alert("Customer not found..");
       }
       this._customerservice.updateCustomer(f.value, this.id).subscribe(data => {
         console.log(data);
-        alert(JSON.stringify(data.data));
+        // alert(JSON.stringify(data.data));
         let index = this.addCustomer.findIndex(u => u.id == this.id);
         this.addCustomer[index] = data;
         f.reset();

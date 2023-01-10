@@ -21,4 +21,17 @@ export class CustomersComponent implements OnInit {
     })
   }
 
+  // getforms(): void {
+  //   let productForm = this.fb.group({
+  //     inward: this.fb.fgroup({
+  //       billNo: [],
+  //       date: Date,
+  //       formarName: String,
+  //       products: this.fb.array([
+          
+  //       ])  
+  //     })
+  //   })
+  // }
+
 }

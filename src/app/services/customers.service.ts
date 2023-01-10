@@ -27,6 +27,10 @@ export class CustomersService {
     return this._httpClient.get<any>(this._geturl + "/" + id)
   }
 
+  // getSalesId(id: number): Observable<any> {
+  //   return this._httpClient.get<any>(this._salesurl + "/" + id)
+  // }
+
   updateCustomer(customer: any, id: number): Observable<any> {
     return this._httpClient.put(this._geturl + "/" + id, customer);
   }
@@ -34,5 +38,8 @@ export class CustomersService {
   saveSalesentry(sales: any): Observable<any> {
     return this._httpClient.post(this._salesurl, sales);
   }
+
+  
+ 
   
 }

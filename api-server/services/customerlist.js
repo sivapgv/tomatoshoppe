@@ -16,16 +16,16 @@ async function getCustomerList(page = 1){
   }
 }
 
-async function getCustomer(id){
-  const rows = await db.query(
-    `SELECT id, customername, customertype, address 
-    FROM customers where id= id `
-  );
-   const data = helper.emptyOrRows(rows);
-   return {
-     data
-   }
-}
+// async function getCustomer(id){
+//   const rows = await db.query(
+//     `SELECT id, customername, customertype, address 
+//     FROM customers where id= id `
+//   );
+//    const data = helper.emptyOrRows(rows);
+//    return {
+//      data
+//    }
+// }
 
 async function createcustomer(customer){
     const result = await db.query(
