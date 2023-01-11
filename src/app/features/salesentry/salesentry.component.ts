@@ -92,7 +92,10 @@ export class SalesentryComponent implements OnInit {
         //  this.billno = this.billLength + 1;
         //  // alert(this.billno);
         //  // alert(JSON.stringify(this.customers));
-      })
+      });
+      this._customerservice.getBillno().subscribe(data => {
+          this.billno = Number(data['data'][0]['billno'])+1;
+      });
     }
   
     onSelected(value:any): void {
@@ -238,8 +241,8 @@ export class SalesentryComponent implements OnInit {
     saveSalesentry(f: NgForm): void {
 
     let sales = {
-      // 'billno': f.controls['billno'].value,
-      'billno': 101,
+      //'billno': f.controls['billno'].value,
+      'billno': this.billno,
       'date': f.controls['date'].value,
       'customerid': this.customerid,
       'comission': f.controls['comission'].value,

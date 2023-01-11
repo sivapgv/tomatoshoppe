@@ -11,6 +11,7 @@ export class CustomersService {
   private _url = "http://localhost:3000/customerlist";
   private _geturl = "http://localhost:3000/customer";
   private _salesurl = "http://localhost:3000/salesmaster";
+  private _billnourl = "http://localhost:3000/salesmaster/0";
 
 
   constructor(private _httpClient:HttpClient) { }
@@ -39,7 +40,9 @@ export class CustomersService {
     return this._httpClient.post(this._salesurl, sales);
   }
 
-  
+  getBillno(): Observable<any> {
+    return this._httpClient.get<any>(this._billnourl);
+  }
  
   
 }

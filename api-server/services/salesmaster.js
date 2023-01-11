@@ -85,15 +85,16 @@ async function createsalesmaster(request){
 }
 
 async function getSalesId(id) {
-  // let condition = '';
-  // if(id==0){
-  //   condition = 'ORDER BY ID DESC LIMIT 1';
-  // } else {
-  //   condition = 'where id='+id;
-  // }
+  let condition = '';
+  if(id==0){
+    condition = 'ORDER BY ID DESC LIMIT 1';
+  } else {
+    condition = 'where id='+id;
+  }
+
   const rows = await db.query(
-    `SELECT billno, date, customerid, comission, rent, credit, wages, toll, debit, totalamount
-    FROM salesmaster where id = '${id}'`
+    `SELECT id, billno, date, customerid, comission, rent, credit, wages, toll, debit, totalamount
+    FROM salesmaster ${condition}`
   );
 
    const data = helper.emptyOrRows(rows);
